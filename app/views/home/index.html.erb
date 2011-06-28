@@ -1,0 +1,8 @@
+<h1>HackerNoise</h1>
+<a href="posts/new">New Post</a><p/>
+
+<% for p in @posts %>
+  
+  <%= link_to p.title, p.url %> by <%= User.find(p.user_id).username %> <%= time_ago_in_words(p.created_at) %> ago<br/>
+
+<% end %>
