@@ -1,6 +1,7 @@
 App::Application.routes.draw do
   resource :posts
-
+  match 'posts/:id' => 'posts#show'
+  
   devise_for :users
   
   #default

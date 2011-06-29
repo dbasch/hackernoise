@@ -2,7 +2,9 @@
 <a href="posts/new">New Post</a><p/>
 
 <% for p in @posts %>
-  
+  <% if p.url.blank? %>
+    <% p.url = '/posts/' + p.id.to_s %>
+  <% end %>
   <%= link_to p.title, p.url %> by <%= User.find(p.user_id).username %> <%= time_ago_in_words(p.created_at) %> ago<br/>
 
 <% end %>
