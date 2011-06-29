@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_filter :authenticate_user!, :except => :show
   def create
     u = User.find(params[:post][:user])
     params[:post][:user] = u
